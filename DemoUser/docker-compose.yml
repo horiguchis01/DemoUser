@@ -1,0 +1,16 @@
+version: '3'
+services:
+  ci:
+    container_name: ci
+    image: jetbrains/teamcity-server
+    ports:
+      - 8111:8111
+    volumes:
+      - ./ci/logs:/opt/teamcity/logs
+      - ./ci/data:/data/teamcity_server/datadir
+    environment:
+      - TEAMCITY_SERVER_MEM_OPTS="-Xmx750m"
+  ci-agent:
+    image: jetbrains/teamcity-agent
+    environment:
+      - SERVER_URL=ci:8111
