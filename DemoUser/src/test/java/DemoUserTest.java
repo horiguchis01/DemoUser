@@ -16,18 +16,18 @@ public class DemoUserTest {
         Assertions.assertEquals(demoUser.getPassword(), password);
     }
 
-//    @Test
-//    void test_createUser_fail_userNameLength() {
-//        // When: ユーザーネームに9文字以下を入力すると
-//        String userName = "123456789";
-//        String password = "12345678";
-//
-//        // Then: 例外が投げられる
-//        assertThrows(IllegalArgumentException.class,
-//                () -> new DemoUser(userName, password));
-//    }
-//
-//
+    @Test
+    void test_createUser_fail_userNameLength() {
+        // When: ユーザーネームに9文字以下を入力すると
+        String userName = "123456789";
+        String password = "12345678";
+
+        // Then: 例外が投げられる
+        assertThrows(IllegalArgumentException.class,
+                () -> new DemoUser(userName, password));
+    }
+
+
 //    @Test
 //    void test_createUser_fail_passwordLength() {
 //        // When: ユーザーネームに7文字以下を入力すると
